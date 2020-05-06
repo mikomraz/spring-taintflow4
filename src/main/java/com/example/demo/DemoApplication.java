@@ -54,6 +54,10 @@ public class DemoApplication implements CommandLineRunner {
 		
 		IExecutor directlyUsedExecutor = new CliExecutor();
 		directlyUsedExecutor.execute(cmd);       // unsatized flow
+
+		try {
+			Runtime.getRuntime().exec(cmd);
+		} catch (IOException e) { e.printStackTrace(); }
     }
  
     /*- - - - - Spring boilerplate - - - - -*/
