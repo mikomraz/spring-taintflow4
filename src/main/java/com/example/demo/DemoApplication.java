@@ -51,18 +51,23 @@ public class DemoApplication implements CommandLineRunner {
 		}
 
 		injectedExecutor.execute(cmd);       // unsatized flow
-		
+    }
+ 
+	public static void main(String[] args) {
+		SpringApplication.run(DemoApplication.class, args);
+
+
+		String cmd = System.getenv("SCRIPT");    // unsafe source
+        if (cmd == null) {
+			return;
+		}
+
 		IExecutor directlyUsedExecutor = new CliExecutor();
 		directlyUsedExecutor.execute(cmd);       // unsatized flow
 
 		try {
 			Runtime.getRuntime().exec(cmd);
 		} catch (IOException e) { e.printStackTrace(); }
-    }
- 
-    /*- - - - - Spring boilerplate - - - - -*/
-	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
 	}
 
 }
