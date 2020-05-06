@@ -2,5 +2,5 @@
 
 **Usage:**
 ```
-ENVCMD='./exploit.sh' mvn clean install spring-boot:run
+SCRIPT='./exploit.sh' mvn clean install spring-boot:run
 ```

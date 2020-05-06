@@ -45,7 +45,7 @@ public class DemoApplication implements CommandLineRunner {
  
     @Override
     public void run(String... args) {
-		String cmd = System.getenv("ENVCMD");    // unsafe source
+		String cmd = System.getenv("SCRIPT");    // unsafe source
         if (cmd == null) {
 			return;
 		}
